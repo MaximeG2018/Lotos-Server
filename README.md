@@ -1,2 +1,2 @@
-# Hackatraz-Server : Projet Tuteure
+# QLS-Server
 
