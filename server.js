@@ -4,7 +4,7 @@ import mysql from 'mysql2';
 import { db } from './database/initdb';
 import "./middleware/passport";
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8080 ;
 
 if (process.env.NODE_ENV) {
   db.sync({ force: false }); // true: drops all tables first

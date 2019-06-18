@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/MaximeG2018/QLS-Server/issues"
   },
+  "keywords": [
+  "heroku"
+],
   "homepage": "https://github.com/MaximeG2018/QLS-Server#readme",
   "dependencies": {
     "@babel/core": "^7.4.5",
