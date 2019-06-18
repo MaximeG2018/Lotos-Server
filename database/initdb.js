@@ -10,7 +10,7 @@ export const db = (config) ? new Sequelize(
   config.password,
   {
     dialect: config.dialect,
-    host: 'localhost',
+    host: config.host,
     port: config.port,
     logging: console.log,
     define: {
