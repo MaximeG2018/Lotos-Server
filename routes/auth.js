@@ -6,18 +6,17 @@ import passport from "passport";
 const api = Router();
 
 api.post("/register", async (req, res) => {
-  const { firstname, lastname, nickname, email, password, password_confirmation } = req.body;
+  const { firstname, lastname, email, password, password_confirmation } = req.body;
   try {
     const user = new User({
       firstname,
       lastname,
-      nickname,
       email,
       password,
-      password_confirmation,
+      password_confirmation
     });
     await user.save();
-    const payload = { id: user.id, firstname, lastname, nickname, email };
+    const payload = { id: user.id, firstname, lastname, email };
     const token = jwt.sign(payload, process.env.SUPERSECRET);
 
     res.status(201).json({ data: { user }, meta: { token } });
@@ -35,8 +34,8 @@ api.post("/login", async (req, res) => {
       return res.status(400);
     }
 
-    const { id, nickname, email } = user;
-    const payload = { id, nickname, email };
+    const { id, firstname, email } = user;
+    const payload = { id, firstname, email };
     const token = jwt.sign(payload, process.env.SUPERSECRET);
     res.status(200).json({ data: { user }, meta: { token } });
   })(req, res);

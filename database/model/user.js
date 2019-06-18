@@ -14,23 +14,6 @@ export default class User extends Model {
            lastname: {
              type: Sequelize.STRING,
            },
-           nickname: {
-             type: Sequelize.STRING,
-             unique: {
-               args: true,
-               msg: "Nickname already in use"
-             },
-             validate: {
-               isLongEnough(v) {
-                 if (v.length < 5) {
-                   throw new Error("Nickname must have at least 5 characters");
-                 }
-               }
-             }
-           },
-           picture: {
-             type: Sequelize.STRING,
-           },
            email: {
              type: Sequelize.STRING,
              allowNull: false,
@@ -68,12 +51,6 @@ export default class User extends Model {
                  }
                }
              }
-           },
-           city: {
-             type: Sequelize.STRING,
-           },
-           lastLocation: {
-             type: Sequelize.GEOMETRY('POINT',4326)
            },
            createdAt: {
              type: Sequelize.DATE(3),
@@ -114,8 +91,6 @@ export default class User extends Model {
            }
          })
      };
-
-
 
   async generateHash() {
     const SALT_ROUND = 5;

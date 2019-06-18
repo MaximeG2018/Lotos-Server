@@ -3,6 +3,6 @@ import user from "./user";
 
 const api = Router();
 
-api.use("/user", user);
+api.use("/users", user);
 
 export default api;
