@@ -1,10 +1,19 @@
-const express = require('express')
-const app = express()
+import express from "express";
+import mysql from 'mysql';
+import iconv from 'iconv-lite';
+import encodings from 'iconv-lite/encodings';
+import app from './app';
+import { db } from './database/initdb';
+import "./middleware/passport";
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+iconv.encodings = encodings;
+require('dotenv').config();
+const port = process.env.PORT;
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+if (process.env.NODE_ENV) {
+  db.sync({ force: false }); // true: drops all tables first
+} else {
+  throw new Error('CONFIG ERROR : Please specify your NODE_ENV in an env file')
+}
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
