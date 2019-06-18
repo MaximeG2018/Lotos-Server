@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import passport from "passport";
 import api from './routes/';
 
+require('dotenv').config();
 const app = express();
 
 app.use(passport.initialize());

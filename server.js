@@ -1,13 +1,9 @@
 import express from "express";
-import mysql from 'mysql';
-import iconv from 'iconv-lite';
-import encodings from 'iconv-lite/encodings';
 import app from './app';
+import mysql from 'mysql2';
 import { db } from './database/initdb';
 import "./middleware/passport";
 
-iconv.encodings = encodings;
-require('dotenv').config();
 const port = process.env.PORT;
 
 if (process.env.NODE_ENV) {
