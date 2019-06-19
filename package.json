@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "engines": {
-  "node": "8.11.4"
+    "node": "8.11.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,8 +20,8 @@
     "url": "https://github.com/MaximeG2018/QLS-Server/issues"
   },
   "keywords": [
-  "heroku"
-],
+    "heroku"
+  ],
   "homepage": "https://github.com/MaximeG2018/QLS-Server#readme",
   "dependencies": {
     "@babel/core": "^7.4.5",
