@@ -1,10 +1,15 @@
-const express = require('express')
-const app = express()
+import express from "express";
+import app from './app';
+import mysql from 'mysql2';
+import { db } from './database/initdb';
+import "./middleware/passport";
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+const port = process.env.PORT || 8080 ;
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+if (process.env.NODE_ENV) {
+  db.sync({ force: false }); // true: drops all tables first
+} else {
+  throw new Error('CONFIG ERROR : Please specify your NODE_ENV in an env file')
+}
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
