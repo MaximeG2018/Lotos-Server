@@ -1,10 +1,13 @@
 import fs from 'fs';
 import Sequelize from "sequelize";
 import User from "./model/user";
+import Video from "./model/video";
+import Guest from './model/guest';
+import Tag from './model/tag';
 
-const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json').dev : null;
+const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json').local : null;     // dev => Heroku : local => PhpMyAdmin
 
-export const db = (config) ? new Sequelize(
+export const db = (config) ? new Sequelize (
   config.database,
   config.user,
   config.password,
@@ -26,3 +29,18 @@ db.authenticate().then( (err)=> {
 );
 
 User.init(db);
+Video.init(db);
+Guest.init(db);
+Tag.init(db);
+
+//
+Video.belongsTo(User);
+User.hasMany(Video);
+
+//
+Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
+Tag.belongsToMany(Video, {as: 'tagToVideo', through: 'videoTag', foreignKey: 'idTag'});
+
+//
+// Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
+// Tag.belongsToMany(Video, {as: 'tagToVideo', through: 'videoTag', foreignKey: 'idTag'});

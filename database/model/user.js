@@ -63,11 +63,11 @@ export default class User extends Model {
          }, {
            tableName: "user",
            sequelize: database,
-
+           underscored: true,
            indexes: [
              {
                unique: true,
-               fields: ["nickname", "email"]
+               fields: ["email"]
              }
            ],
 

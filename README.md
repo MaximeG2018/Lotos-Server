@@ -1,6 +1,6 @@
 # QLS-Server
 
-## CREW 
+## CREW
 
 | Name | Role |
 |------|------|
@@ -26,10 +26,10 @@ USE `lotos`;
 - Create **database/config.json** to configure local DB connection, like this one :
 ```java
 {
-  "dev": {
+  "local": {
     "dialect": "mysql",
     "database": "lotos",
-    "port": 3306,
+    "port": "PORT_MYSQL",
     "user": "YOUR_USERNAME",
     "password": "YOUR_PASSWORD"
   }
