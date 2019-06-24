@@ -4,6 +4,11 @@ import User from "./model/user";
 import Video from "./model/video";
 import Guest from './model/guest';
 import Tag from './model/tag';
+import Qcm from './model/qcm'
+import  Question from  './model/question'
+import  Reponse from  './model/reponse'
+import  Trophee from './model/trophee'
+
 
 const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json').local : null;     // dev => Heroku : local => PhpMyAdmin
 
@@ -32,6 +37,10 @@ User.init(db);
 Video.init(db);
 Guest.init(db);
 Tag.init(db);
+Qcm.init(db);
+Reponse.init(db);
+Question.init(db);
+Trophee.init(db);
 
 //
 Video.belongsTo(User);
@@ -39,7 +48,9 @@ User.hasMany(Video);
 
 //
 Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
-Tag.belongsToMany(Video, {as: 'tagToVideo', through: 'videoTag', foreignKey: 'idTag'});
+Video.belongsToMany(Guest, {as: 'videoToGuest', through: 'videoGuest', foreignKey: 'idVideo'});
+
+
 
 //
 // Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
