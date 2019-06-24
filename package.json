@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --exec babel-node",
+    "start": "nodemon server.js --exec babel-node"
   },
   "repository": {
     "type": "git",
