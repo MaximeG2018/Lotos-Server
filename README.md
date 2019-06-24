@@ -48,6 +48,17 @@ USE `lotos`;
 
 ---
 
+- **USER ENDPOINT**
+
+| method       | endpoint              | body                                                        |  auth |
+|--------------|-----------------------|-------------------------------------------------------------|-------|
+| **GET**      | `/api/users/`         | X                                                           | token |
+| **GET**      | `/api/users/:id`      | X                                                           | token |
+| **PATCH**    | `/api/users/:id`      | body : { firstname, email }                                 | token |
+| **DELETE**   | `/api/users/:id`      | body : { token  }                                           | token |
+
+---
+
 ## API Video
 
 https://r3lovution-lotus-api.herokuapp.com/api/videos

@@ -16,7 +16,7 @@ api.get('/:id', async (req,res)=> {
 })
 
 // UPDATE USER
-api.patch('/update/:id', (req,res,next)=> {
+api.patch('/:id', (req,res,next)=> {
   jwt.verify(req.body.token,process.env.SUPERSECRET, async (err,decoded) => {
       if (err) {
         res.status(400).json({ error: 'Token error : ' + err.message });
@@ -37,10 +37,10 @@ api.patch('/update/:id', (req,res,next)=> {
 })
 
 // DELETE USER
-api.delete('/delete/:id', async (req,res)=> {
+api.delete('/:id', async (req,res)=> {
   jwt.verify(req.body.token,process.env.SUPERSECRET, async (err,decoded) => {
       if (err) {
-        res.status(400).json({ error: 'Token error : '+err.message });
+        res.status(400).json({ error: 'Token error : '+ err.message });
       } else {
         await User.destroy({where:{id: req.params.id}})
         .then( response => {
