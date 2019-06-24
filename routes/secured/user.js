@@ -15,4 +15,27 @@ api.get('/:id', async (req,res)=> {
   res.status(200).json(user);
 })
 
+// UPDATE USER
+api.patch('/update/:id', (req,res,next)=> {
+  jwt.verify(req.body.token,process.env.SUPERSECRET, async (err,decoded) => {
+      if (err) {
+        res.status(400).json({ error: 'Token error : ' + err.message });
+      } else {
+        User.update(
+          { firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: "fake_password",
+            password_confirmation: "fake_password",
+          }, { where : {id:req.params.id},
+          returning: true, plain: true })
+          .then( response => {
+            res.status(200).json({msg:'User information updated successfully.'}) })
+          .catch( err => {
+            res.status(400).json({ error: err.original.detail, id: req.params.id })
+          });
+  	   }
+  });
+})
+
 export default api;
