@@ -24,9 +24,7 @@ api.patch('/update/:id', (req,res,next)=> {
         User.update(
           { firstname: req.body.firstname,
             lastname: req.body.lastname,
-            email: req.body.email,
-            password: "fake_password",
-            password_confirmation: "fake_password",
+            email: req.body.email
           }, { where : {id:req.params.id},
           returning: true, plain: true })
           .then( response => {
@@ -35,6 +33,22 @@ api.patch('/update/:id', (req,res,next)=> {
             res.status(400).json({ error: err.original.detail, id: req.params.id })
           });
   	   }
+  });
+})
+
+// DELETE USER
+api.delete('/delete/:id', async (req,res)=> {
+  jwt.verify(req.body.token,process.env.SUPERSECRET, async (err,decoded) => {
+      if (err) {
+        res.status(400).json({ error: 'Token error : '+err.message });
+      } else {
+        await User.destroy({where:{id: req.params.id}})
+        .then( response => {
+          res.status(200).json({msg: "User deleted successfully." }) })
+        .catch( err => {
+          res.status(400).json({ error: err.original.detail })
+        });
+      }
   });
 })
 

@@ -49,9 +49,3 @@ User.hasMany(Video);
 //
 Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
 Video.belongsToMany(Guest, {as: 'videoToGuest', through: 'videoGuest', foreignKey: 'idVideo'});
-
-
-
-//
-// Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
-// Tag.belongsToMany(Video, {as: 'tagToVideo', through: 'videoTag', foreignKey: 'idTag'});

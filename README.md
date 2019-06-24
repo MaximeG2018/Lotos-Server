@@ -48,6 +48,10 @@ USE `lotos`;
 
 ---
 
+## API Video
+
+https://r3lovution-lotus-api.herokuapp.com/api/videos
+
 ## DEPLOYED SERVER APP
 
 https://qls-project.herokuapp.com/
