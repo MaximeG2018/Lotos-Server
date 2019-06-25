@@ -22,10 +22,14 @@ export const db = (config) ? new Sequelize (
     host: config.host,
     port: config.port,
     logging: console.log,
+    dialectOptions: {
+      ssl: config.ssl
+    },
     define: {
       timestamps: false
     }
-  }) : new Sequelize(process.env.JAWSDB_URL, {logging: false} );
+
+  }) : new Sequelize(process.env.DATABASE_URL, {logging: false} );
 
 db.authenticate().then( (err)=> {
 		console.log('Connection has been established successfully.');
