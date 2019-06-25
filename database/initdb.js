@@ -10,6 +10,7 @@ import  Reponse from  './model/reponse'
 import  Trophee from './model/trophee'
 
 const env = process.env.dev || "dev"
+console.log(env);
 const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json')[env] : null;     // dev => Heroku : local => PhpMyAdmin
 
 export const db = (config) ? new Sequelize (
