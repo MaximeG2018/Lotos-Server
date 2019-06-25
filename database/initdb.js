@@ -6,7 +6,7 @@ import Guest from './model/guest';
 import Tag from './model/tag';
 import Qcm from './model/qcm'
 import  Question from  './model/question'
-import  Reponse from  './model/reponse'
+import  Answer from  './model/Answer'
 import  Trophee from './model/trophee'
 
 const env = process.env.dev || "dev"
@@ -39,7 +39,7 @@ Video.init(db);
 Guest.init(db);
 Tag.init(db);
 Qcm.init(db);
-Reponse.init(db);
+Answer.init(db);
 Question.init(db);
 Trophee.init(db);
 
@@ -47,8 +47,14 @@ Trophee.init(db);
 Video.belongsTo(User);
 User.hasMany(Video);
 
-//
+// Jointure Video Tag
 Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
+// Jointure Video Guest
 Video.belongsToMany(Guest, {as: 'videoToGuest', through: 'videoGuest', foreignKey: 'idVideo'});
+// Jointure Question Trophee
+Question.belongsToMany(Trophee, {as: 'questionToTrophee', through: 'questionTrophee', foreignKey: 'idQuestion'});
+// Jointure Qcm Answer:
+ Qcm.belongsToMany(Answer, {as: 'qcmToAnwser', through: 'qcmAnwser', foreignKey: 'idQcm'});
+
 
 //

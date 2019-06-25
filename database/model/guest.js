@@ -7,6 +7,8 @@ export default class Guest extends Model {
       {
         idGuest: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         name: {
           type: Sequelize.STRING

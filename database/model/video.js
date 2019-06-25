@@ -7,6 +7,8 @@ export default class Video extends Model {
       {
         idVideo: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         url: {
           type: Sequelize.STRING,

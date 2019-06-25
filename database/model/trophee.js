@@ -7,6 +7,8 @@ export default class Trophee extends Model {
       {
         idTrophee: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         name: {
           type: Sequelize.STRING

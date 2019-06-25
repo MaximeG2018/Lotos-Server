@@ -1,18 +1,20 @@
 import Sequelize, { Model } from "sequelize";
 
-export default class Reponse extends Model {
+export default class Answer extends Model {
   static init(database) {
 
     return super.init(
       {
-        idReponse: {
+        idAnswer: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         reponse: {
           type: Sequelize.STRING,
         }
       }, {
-        tableName: "reponse",
+        tableName: "answer",
         sequelize: database,
       })
   };

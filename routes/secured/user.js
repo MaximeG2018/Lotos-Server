@@ -37,7 +37,7 @@ api.patch('/:id', (req,res,next)=> {
 })
 
 // UPDATE PASSWORD USER
-api.patch('/updatepassword/:id', async (req,res,next)=> {
+api.put('/updatepassword/:id', async (req,res,next)=> {
     jwt.verify(req.body.token,process.env.SUPERSECRET, async (err,decoded) => {
         if (err) {
           res.status(400).json({ error: 'Token error : '+err.message });

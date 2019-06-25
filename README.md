@@ -55,7 +55,7 @@ USE `lotos`;
 | **GET**      | `/api/users/`         | X                                                           | token |
 | **GET**      | `/api/users/:id`      | X                                                           | token |
 | **PATCH**    | `/api/users/:id`      | body : { firstname, email }                                 | token |
-| **PATCH**    | `/api/updatepassword/:id` | body : { old_password, password, password_confirmation, token }  | token |
+| **PUT**    | `/api/updatepassword/:id` | body : { old_password, password, password_confirmation, token }  | token |
 | **DELETE**   | `/api/users/:id`       | body : { token  }                                           | token |
 
 ---
