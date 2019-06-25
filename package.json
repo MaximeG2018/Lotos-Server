@@ -38,11 +38,12 @@
     "json": "^9.0.6",
     "jsonwebtoken": "^8.5.1",
     "marked": "^0.6.2",
-    "mysql2": "^1.6.5",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^5.8.10"
   }
 }

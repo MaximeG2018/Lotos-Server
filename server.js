@@ -1,6 +1,6 @@
 import express from "express";
 import app from './app';
-import mysql from 'mysql2';
+import pg from 'pg';
 import { db } from './database/initdb';
 import "./middleware/passport";
 
