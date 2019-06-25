@@ -9,8 +9,8 @@ import  Question from  './model/question'
 import  Reponse from  './model/reponse'
 import  Trophee from './model/trophee'
 
-
-const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json').local : null;     // dev => Heroku : local => PhpMyAdmin
+const env = process.env.dev || "dev"
+const config = fs.existsSync(__dirname.replace('\\','/')+'/config.json') ? require('./config.json')[env] : null;     // dev => Heroku : local => PhpMyAdmin
 
 export const db = (config) ? new Sequelize (
   config.database,
@@ -49,3 +49,5 @@ User.hasMany(Video);
 //
 Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
 Video.belongsToMany(Guest, {as: 'videoToGuest', through: 'videoGuest', foreignKey: 'idVideo'});
+
+//
