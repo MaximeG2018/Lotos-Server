@@ -11,7 +11,7 @@ api.get('/all', (req, res) => {
 })
 
 api.get('/:categorie', (req, res) => {
-  console.log(req.params.catergorie)
+  console.log(req.params.categorie)
   const url = 'https://r3lovution-lotus-api.herokuapp.com/api/videos';
   fetch(url,res)
 })
