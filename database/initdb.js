@@ -6,7 +6,7 @@ import Guest from './model/guest';
 import Tag from './model/tag';
 import Qcm from './model/qcm'
 import  Question from  './model/question'
-import  Answer from  './model/Answer'
+import  Answer from  './model/answer'
 import  Trophee from './model/trophee'
 
 const env = process.env.dev || "dev"
