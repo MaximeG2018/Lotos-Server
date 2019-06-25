@@ -47,10 +47,10 @@ Answer.init(db);
 Question.init(db);
 Trophee.init(db);
 
-//
+//Jointure Video to User
 Video.belongsTo(User);
+//Jointure User to Video
 User.hasMany(Video);
-
 // Jointure Video Tag
 Video.belongsToMany(Tag, {as: 'videoToTag', through: 'videoTag', foreignKey: 'idVideo'});
 // Jointure Video Guest
