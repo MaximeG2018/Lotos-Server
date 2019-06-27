@@ -1,4 +1,5 @@
 import Video from "../database/model/video";
+import asyncMiddleware from "../middleware/asyncMiddleware";
 const express = require("express");
 const axios = require("axios");
 const circularJson = require("circular-json");
@@ -10,11 +11,13 @@ api.get("/all", (req, res) => {
   fetch(url, res);
 });
 
-api.get("/:categorie", (req, res) => {
-  console.log(req.params.categorie);
-  const url = "https://r3lovution-lotus-api.herokuapp.com/api/videos";
-  fetchbyCategorie(url, req, res);
-});
+api.get(
+  "/:categorie",
+  asyncMiddleware(async (req, res) => {
+    const url = "https://r3lovution-lotus-api.herokuapp.com/api/videos";
+    await fetchbyCategorie(url, req, res);
+  })
+);
 
 function fetch(url, res) {
   axios
@@ -39,12 +42,14 @@ async function fetchbyCategorie(url, req, res) {
       }
     })
     .then(response => {
-      const data = JSON.parse(response.data);
-      data.videos.map(items => {
-        if (items === req.params.categorie) {
-          res.send(response.data).status(200);
+      // const data = JSON.parse(response.data);
+      console.log("ok");
+      response.data.data.videos.map(items => {
+        if (items.category === req.params.categorie) {
+          console.log(items);
+          res.send(items);
         } else {
-          res.send("Error categorie incorrect").status(404);
+          res.send({});
         }
       });
     })
