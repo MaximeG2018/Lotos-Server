@@ -5,7 +5,7 @@
 | Name | Role |
 |------|------|
 | Adrien Masson | **Front** |
-| Ibrahima Dansoko | **Front** |
+| Ibrahima Dansoko | **Front / Back ** |
 | Maxime Gouénard | **Back** |
 | Yassine Fahiti | **Back** |
 
