@@ -4,7 +4,7 @@ import pg from 'pg';
 import { db } from './database/initdb';
 import "./middleware/passport";
 
-const port = process.env.PORT || 8080 ;
+const port = process.env.PORT || 2323 ;
 
 if (process.env.NODE_ENV) {
   db.sync({ force: true }); // true: drops all tables first
