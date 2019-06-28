@@ -11,13 +11,11 @@ api.get("/all", (req, res) => {
   fetch(url, res);
 });
 
-api.get(
-  "/:categorie",
-  asyncMiddleware(async (req, res) => {
-    const url = "https://r3lovution-lotus-api.herokuapp.com/api/videos";
-    await fetchbyCategorie(url, req, res);
-  })
-);
+api.get("/:categorie", (req, res) => {
+  console.log(req.params.categorie);
+  const url = "https://r3lovution-lotus-api.herokuapp.com/api/videos";
+  fetch(url, res);
+});
 
 function fetch(url, res) {
   axios
