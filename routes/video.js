@@ -14,7 +14,7 @@ api.get("/all", (req, res) => {
 api.get("/:categorie", (req, res) => {
   console.log(req.params.categorie);
   const url = "https://r3lovution-lotus-api.herokuapp.com/api/videos";
-  fetch(url, res);
+  fetchbyCategorie(url, req, res);
 });
 
 function fetch(url, res) {
@@ -45,9 +45,7 @@ async function fetchbyCategorie(url, req, res) {
       response.data.data.videos.map(items => {
         if (items.category === req.params.categorie) {
           console.log(items);
-          return res.send(items);
-        } else {
-          res.send({});
+          return res.send(items)
         }
       });
     })
