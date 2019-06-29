@@ -45,7 +45,7 @@ async function fetchbyCategorie(url, req, res) {
       response.data.data.videos.map(items => {
         if (items.category === req.params.categorie) {
           console.log(items);
-          res.send(items);
+          return res.send(items);
         } else {
           res.send({});
         }
