@@ -44,9 +44,6 @@ function fetchbyCategorie(url, req, res) {
           // console.log(items);
           return res.send(items);
         }
-        if (items.category !== req.params.categorie) {
-          return res.send({});
-        }
       });
     })
     .catch(err => {
