@@ -1,6 +1,6 @@
-import express from "express";
+// import express from "express";
 import app from './app';
-import pg from 'pg';
+// import pg from 'pg';
 import { db } from './database/initdb';
 import "./middleware/passport";
 

@@ -1,7 +1,7 @@
 // import Video from "../database/model/video";
-const express = require("express");
-const axios = require("axios");
-const circularJson = require("circular-json");
+import express from "express"
+import axios from "axios"
+import circularJson from "circular-json"
 
 const api = express();
 
