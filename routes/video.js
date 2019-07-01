@@ -1,5 +1,4 @@
 import Video from "../database/model/video";
-import asyncMiddleware from "../middleware/asyncMiddleware";
 const express = require("express");
 const axios = require("axios");
 const circularJson = require("circular-json");
@@ -32,26 +31,27 @@ function fetch(url, res) {
       res.send(JSON.parse(json));
     });
 }
-async function fetchbyCategorie(url, req, res) {
-  await axios
+function fetchbyCategorie(url, req, res) {
+  axios
     .get(url, {
       headers: {
         Accept: "application/json"
       }
     })
     .then(response => {
-      // const data = JSON.parse(response.data);
-      console.log("ok");
       response.data.data.videos.map(items => {
         if (items.category === req.params.categorie) {
-          console.log(items);
-          return res.send(items)
+          // console.log(items);
+          return res.send(items);
+        }
+        if (items.category !== req.params.categorie) {
+          return res.send({});
         }
       });
     })
     .catch(err => {
       console.log("ko");
-      res.send(err);
+      res.send({ error: err.message });
     });
 }
 
