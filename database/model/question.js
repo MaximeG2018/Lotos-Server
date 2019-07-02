@@ -7,6 +7,8 @@ export default class Question extends Model {
       {
         idQuestion: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         question: {
           type: Sequelize.STRING,

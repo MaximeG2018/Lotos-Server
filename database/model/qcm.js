@@ -7,6 +7,8 @@ export default class Qcm extends Model {
       {
         idQcm: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         name: {
           type: Sequelize.STRING

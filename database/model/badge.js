@@ -1,28 +1,27 @@
 import Sequelize, { Model } from "sequelize";
 
-export default class Video extends Model {
+export default class Badge extends Model {
   static init(database) {
     return super.init(
       {
-        idVideo: {
+        idBadge: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           allowNull: false
         },
-        url: {
+        name: {
           type: Sequelize.STRING
         },
-        title: {
+        image: {
           type: Sequelize.STRING
         },
-        guest: {
-          type: Sequelize.JSON
+        requiredPoints: {
+          type: Sequelize.INTEGER
         }
       },
       {
-        tableName: "video",
-        sequelize: database,
-        underscored: true
+        tableName: "badge",
+        sequelize: database
       }
     );
   }

@@ -7,6 +7,8 @@ export default class Tag extends Model {
       {
         idTag: {
           type: Sequelize.INTEGER,
+          primaryKey: true,
+          allowNull: false
         },
         name: {
           type: Sequelize.STRING

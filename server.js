@@ -1,13 +1,13 @@
-import express from "express";
+// import express from "express";
 import app from './app';
-import mysql from 'mysql2';
+// import pg from 'pg';
 import { db } from './database/initdb';
 import "./middleware/passport";
 
-const port = process.env.PORT || 8080 ;
+const port = process.env.PORT || 2323 ;
 
 if (process.env.NODE_ENV) {
-  db.sync({ force: false }); // true: drops all tables first
+  db.sync({ force: true }); // true: drops all tables first
 } else {
   throw new Error('CONFIG ERROR : Please specify your NODE_ENV in an env file')
 }
