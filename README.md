@@ -1,4 +1,4 @@
-# QLS-Server
+# Lotus-Server
 
 ## CREW
 
