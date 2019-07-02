@@ -1,4 +1,4 @@
-# Lotus-Server
+# Lotos-Server
 
 ## CREW
 
@@ -66,4 +66,4 @@ https://r3lovution-lotus-api.herokuapp.com/api/videos
 
 ## DEPLOYED SERVER APP
 
-https://qls-project.herokuapp.com/
+https://lotos-project.herokuapp.com/
